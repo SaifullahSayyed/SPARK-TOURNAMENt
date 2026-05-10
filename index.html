@@ -55,8 +55,8 @@ body.hov #cur{width:50px;height:50px;background:rgba(240,165,0,.12)}
 body.hov #cur2{opacity:0}
 
 @media(hover:none),(pointer:coarse){
-  #cur,#cur2{display:none}
-  body{cursor:auto}
+  #cur,#cur2{display:none!important}
+  body{cursor:auto!important}
 }
 
 /* CANVAS */
@@ -87,7 +87,7 @@ nav.sc{background:rgba(1,6,14,.88);backdrop-filter:blur(24px);border-bottom:1px 
 .hero{height:100svh;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;padding:0 2rem 9rem;position:relative;overflow:hidden}
 .h-kicker{font-family:var(--font-bc);font-size:.72rem;font-weight:600;letter-spacing:.5em;color:var(--cyan);display:flex;align-items:center;gap:.8rem;opacity:0;transform:translateY(14px);margin-bottom:.8rem}
 .h-kicker::before,.h-kicker::after{content:'';display:block;width:28px;height:1px;background:var(--cyan);opacity:.5}
-.h-title{font-family:var(--font-d);font-size:clamp(5.5rem,16vw,16rem);line-height:.82;letter-spacing:.04em;opacity:0;transform:translateY(40px) scale(.94);position:relative}
+.h-title{font-family:var(--font-d);font-size:clamp(5rem,16vw,16rem);line-height:.82;letter-spacing:.04em;opacity:0;transform:translateY(40px) scale(.94);position:relative}
 .h-title .l1{
   display:block;
   background:linear-gradient(155deg,var(--gold-hi) 0%,var(--gold) 40%,#c87000 100%);
@@ -105,7 +105,7 @@ nav.sc{background:rgba(1,6,14,.88);backdrop-filter:blur(24px);border-bottom:1px 
 .s-txt{font-family:var(--font-bc);font-size:.6rem;letter-spacing:.3em;color:var(--muted)}
 
 /* TICKER */
-.ticker{position:fixed;bottom:0;left:0;right:0;z-index:400;background:rgba(1,6,14,.92);backdrop-filter:blur(20px);border-top:1px solid rgba(240,165,0,.1);padding:.7rem 0;overflow:hidden}
+.ticker{position:fixed;bottom:0;left:0;right:0;z-index:400;background:rgba(1,6,14,.92);backdrop-filter:blur(20px);border-top:1px solid rgba(240,165,0,.1);padding:.7rem 0;overflow:hidden;width:100%}
 .t-track{display:inline-flex;white-space:nowrap;animation:tck 50s linear infinite;font-family:var(--font-bc);font-size:.95rem;font-weight:700;letter-spacing:.1em;color:var(--gold)}
 .t-track:hover{animation-play-state:paused}
 .ti{padding:0 2.5rem;display:inline-flex;align-items:center;gap:.7rem}
@@ -221,9 +221,7 @@ footer{padding:3rem;border-top:1px solid rgba(255,255,255,.04);background:rgba(1
   .p-body{padding:1.2rem}.p-head{padding:1.2rem 1.5rem}.p-foot{padding:1rem 1.5rem}
   .i-shell{height:480px}.cta-btn{padding:1.1rem 3rem}
   .h-title{font-size:clamp(3.5rem,14vw,8rem)}
-  .h-sub{font-size:.85rem;letter-spacing:.2em}
-  .nb{font-size:1.3rem}
-  .nc{padding:.45rem 1.2rem;font-size:.7rem}
+  .s-h{font-size:clamp(2.5rem,10vw,5rem)}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:duration:.01ms!important}
@@ -253,14 +251,18 @@ footer{padding:3rem;border-top:1px solid rgba(255,255,255,.04);background:rgba(1
 <div class="ticker">
   <div class="t-track">
     <span class="ti"><span class="td"></span>REGISTRATION OPEN — ₹300 PER TEAM</span>
-    <span class="ti"><span class="td"></span>TROPHIES FOR TOP 2 TEAMS</span>
-    <span class="ti"><span class="td"></span>₹500 SPONSOR PRIZE — PLAYER OF THE FINAL</span>
-    <span class="ti"><span class="td"></span>ROUND ROBIN + KNOCKOUT FORMAT</span>
+    <span class="ti"><span class="td"></span>1ST PLACE — TROPHY + CASH PRIZE</span>
+    <span class="ti"><span class="td"></span>CASH PRIZE GROWS WITH REGISTRATIONS</span>
+    <span class="ti"><span class="td"></span>PURE KNOCKOUT — WIN OR GO HOME FROM MATCH 1</span>
+    <span class="ti"><span class="td"></span>₹500 BONUS — PLAYER OF THE FINAL</span>
+    <span class="ti"><span class="td"></span>2ND PLACE WINS TROPHY</span>
     <span class="ti"><span class="td"></span>LIMITED SPOTS — REGISTER NOW</span>
     <span class="ti"><span class="td"></span>REGISTRATION OPEN — ₹300 PER TEAM</span>
-    <span class="ti"><span class="td"></span>TROPHIES FOR TOP 2 TEAMS</span>
-    <span class="ti"><span class="td"></span>₹500 SPONSOR PRIZE — PLAYER OF THE FINAL</span>
-    <span class="ti"><span class="td"></span>ROUND ROBIN + KNOCKOUT FORMAT</span>
+    <span class="ti"><span class="td"></span>1ST PLACE — TROPHY + CASH PRIZE</span>
+    <span class="ti"><span class="td"></span>CASH PRIZE GROWS WITH REGISTRATIONS</span>
+    <span class="ti"><span class="td"></span>PURE KNOCKOUT — WIN OR GO HOME FROM MATCH 1</span>
+    <span class="ti"><span class="td"></span>₹500 BONUS — PLAYER OF THE FINAL</span>
+    <span class="ti"><span class="td"></span>2ND PLACE WINS TROPHY</span>
     <span class="ti"><span class="td"></span>LIMITED SPOTS — REGISTER NOW</span>
   </div>
 </div>
@@ -294,15 +296,15 @@ footer{padding:3rem;border-top:1px solid rgba(255,255,255,.04);background:rgba(1
       <span class="pc-ico">🏐</span>
     </div>
     <div class="pc" id="pc2">
-      <span class="pc-n">TOP 2</span>
-      <span class="pc-l">TEAMS WIN TROPHIES</span>
-      <p class="pc-d">Championship trophies for the top two finalists. Your name in tournament history.</p>
-      <span class="pc-ico">🏆</span>
+      <span class="pc-n">🏆+💰</span>
+      <span class="pc-l">1ST PLACE — TROPHY + CASH</span>
+      <p class="pc-d">Champions take the trophy <em style="color:var(--gold);font-style:normal">plus a cash prize</em>. The exact amount depends on total registrations.</p>
+      <span class="pc-ico">🥇</span>
     </div>
     <div class="pc" id="pc3">
-      <span class="pc-n">₹500</span>
-      <span class="pc-l">SPONSOR BONUS PRIZE</span>
-      <p class="pc-d">Player of the Final receives an exclusive ₹500 sponsored cash prize. Be the standout.</p>
+      <span class="pc-n">🏆</span>
+      <span class="pc-l">2ND PLACE — TROPHY</span>
+      <p class="pc-d">Runner-up earns a championship trophy. Plus the Player of the Final walks away with an extra <em style="color:var(--gold);font-style:normal">₹500 bonus</em>.</p>
       <span class="pc-ico">⭐</span>
     </div>
   </div>
@@ -382,11 +384,11 @@ footer{padding:3rem;border-top:1px solid rgba(255,255,255,.04);background:rgba(1
       </svg>
     </div>
   </div>
-  <h3 class="t-label" id="tl">TROPHIES FOR TOP 2 TEAMS</h3>
-  <p class="t-sub" id="tsub">RISE TO THE TOP — CLAIM YOUR CROWN</p>
+  <h3 class="t-label" id="tl">TROPHY + CASH FOR 1ST PLACE</h3>
+  <p class="t-sub" id="tsub">PRIZE POOL GROWS WITH EVERY REGISTRATION</p>
   <div class="t-badges" id="tbg">
-    <span class="tb tb-g">🥇 1ST PLACE CHAMPIONSHIP</span>
-    <span class="tb tb-c">🥈 2ND PLACE RUNNER-UP</span>
+    <span class="tb tb-g">🥇 1ST — TROPHY + CASH PRIZE</span>
+    <span class="tb tb-c">🥈 2ND — RUNNER-UP TROPHY</span>
     <span class="tb tb-g">⭐ PLAYER OF THE FINAL — ₹500</span>
   </div>
 </section>
@@ -394,12 +396,12 @@ footer{padding:3rem;border-top:1px solid rgba(255,255,255,.04);background:rgba(1
 <!-- FORMAT -->
 <section class="sec" id="s-format">
   <div class="s-eye" id="se3">HOW IT WORKS</div>
-  <h2 class="s-h" id="sh3">COMPETITION<br>FORMAT</h2>
+  <h2 class="s-h" id="sh3">PURE<br>KNOCKOUT</h2>
   <div class="fgrid" id="fgrid">
-    <div class="fi" id="fi1"><span class="fi-n">01</span><div class="fi-t">ROUND ROBIN</div><div class="fi-d">Every team faces every opponent. Earn your seeding through consistent performance in the group stage.</div></div>
-    <div class="fi" id="fi2"><span class="fi-n">02</span><div class="fi-t">KNOCKOUT FINALS</div><div class="fi-d">Top teams advance to single-elimination. One match to make history. No second chances.</div></div>
-    <div class="fi" id="fi3"><span class="fi-n">03</span><div class="fi-t">BEST OF 3 SETS</div><div class="fi-d">Each match plays best of 3 sets to 25 points. Full-standard scoring. Comebacks always possible.</div></div>
-    <div class="fi" id="fi4"><span class="fi-n">04</span><div class="fi-t">PLAYER AWARD</div><div class="fi-d">One standout player earns the ₹500 sponsor bonus prize — Player of the Final recognition.</div></div>
+    <div class="fi" id="fi1"><span class="fi-n">01</span><div class="fi-t">STRAIGHT KNOCKOUT</div><div class="fi-d">No group stages. Every match is win-or-go-home from the very first whistle.</div></div>
+    <div class="fi" id="fi2"><span class="fi-n">02</span><div class="fi-t">SINGLE ELIMINATION</div><div class="fi-d">Lose once and you're out. One team stands alone as champion.</div></div>
+    <div class="fi" id="fi3"><span class="fi-n">03</span><div class="fi-t">BEST OF 3 SETS</div><div class="fi-d">Matches are best of 3 sets to 25 points. Comebacks are always possible.</div></div>
+    <div class="fi" id="fi4"><span class="fi-n">04</span><div class="fi-t">PRIZES</div><div class="fi-d">1st: Trophy + Cash. 2nd: Trophy. Player of Final: ₹500 bonus.</div></div>
   </div>
 </section>
 
@@ -413,7 +415,7 @@ footer{padding:3rem;border-top:1px solid rgba(255,255,255,.04);background:rgba(1
     <div class="btn-rings"><div class="b-ring"></div><div class="b-ring"></div><div class="b-ring"></div></div>
     <button class="cta-btn" id="regBtn">⚡ REGISTER YOUR TEAM →</button>
   </div>
-  <p class="cta-note" id="cn">₹300 ENTRY · TROPHIES + ₹500 BONUS · CONFIRMATION EMAIL SENT INSTANTLY</p>
+  <p class="cta-note" id="cn">₹300 ENTRY · KNOCKOUT FROM MATCH 1 · 1ST PLACE TROPHY + CASH · ₹500 PLAYER BONUS · CONFIRMATION EMAIL SENT INSTANTLY</p>
 </section>
 
 <footer>
@@ -467,9 +469,11 @@ const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
 let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
 addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
 (function ac(){
-  cur.style.left=mx+'px';cur.style.top=my+'px';
-  rx+=(mx-rx)*.13;ry+=(my-ry)*.13;
-  cur2.style.left=rx+'px';cur2.style.top=ry+'px';
+  if(cur && cur2) {
+    cur.style.left=mx+'px';cur.style.top=my+'px';
+    rx+=(mx-rx)*.13;ry+=(my-ry)*.13;
+    cur2.style.left=rx+'px';cur2.style.top=ry+'px';
+  }
   requestAnimationFrame(ac);
 })();
 document.querySelectorAll('button,a').forEach(el=>{
@@ -494,7 +498,7 @@ addEventListener('scroll',()=>navEl.classList.toggle('sc',scrollY>80),{passive:t
   let gl;
   try{gl=canvas.getContext('webgl')||canvas.getContext('experimental-webgl');}catch(e){}
   if(!gl){canvas.style.display='none';return;}
-  gl=null; /* let Three.js take over */
+  gl=null;
 
   const renderer=new THREE.WebGLRenderer({canvas,antialias:window.innerWidth>768,alpha:true});
   renderer.setPixelRatio(Math.min(devicePixelRatio,window.innerWidth>768?2:1.5));
@@ -514,7 +518,6 @@ addEventListener('scroll',()=>navEl.classList.toggle('sc',scrollY>80),{passive:t
   cam.lookAt(0,0,0);
 
   /* ── BACKGROUND ── */
-  /* Deep space gradient via shader background */
   const bgGeo=new THREE.PlaneGeometry(2,2);
   const bgMat=new THREE.ShaderMaterial({
     depthWrite:false,depthTest:false,side:THREE.FrontSide,
@@ -533,14 +536,11 @@ addEventListener('scroll',()=>navEl.classList.toggle('sc',scrollY>80),{passive:t
       void main(){
         vec2 uv=vUv;
         float sc=uScroll*.0003;
-        /* Deep space bg */
         vec3 col=mix(vec3(.008,.025,.055),vec3(.003,.01,.022),uv.y+sc*.4);
-        /* Nebula */
         float nb=fbm(uv*2.8+vec2(uTime*.025,uTime*.012));
         col+=vec3(.07,.035,0.)*nb*.6;
         float nb2=fbm(uv*3.2+vec2(-uTime*.018,uTime*.03)+.6);
         col+=vec3(0.,.04,.09)*nb2*.5;
-        /* Stars */
         for(int i=0;i<4;i++){
           float s=float(i);
           vec2 sg=fract(uv*vec2(18.+s*12.)+vec2(s*3.3,s*2.7))*2.-1.;
@@ -548,7 +548,6 @@ addEventListener('scroll',()=>navEl.classList.toggle('sc',scrollY>80),{passive:t
           float fl=.5+.5*sin(uTime*1.5+hash(floor(uv*vec2(18.+s*12.)))*10.);
           col+=smoothstep(.1,.0,sd)*fl*.5*vec3(.9,.88,1.);
         }
-        /* Vignette */
         vec2 vig=uv*2.-1.;col*=1.-dot(vig*.55,vig*.55);
         gl_FragColor=vec4(clamp(col,0.,1.),1.);
       }
@@ -560,36 +559,29 @@ addEventListener('scroll',()=>navEl.classList.toggle('sc',scrollY>80),{passive:t
   scene.add(bgMesh);
 
   /* ── STADIUM COURT FLOOR ── */
-  /* Hardwood-look floor with canvas texture */
   const floorCanvas=document.createElement('canvas');
   floorCanvas.width=2048;floorCanvas.height=2048;
   const fc=floorCanvas.getContext('2d');
-  /* Base wood color */
   fc.fillStyle='#3a1f0a';fc.fillRect(0,0,2048,2048);
-  /* Wood planks */
   for(let p=0;p<80;p++){
     const y0=p*(2048/80);
     const shade=Math.random()*.18;
     const r=Math.floor(58+shade*30),g=Math.floor(32+shade*16),b=Math.floor(10+shade*6);
     fc.fillStyle=`rgb(${r},${g},${b})`;fc.fillRect(0,y0,2048,2048/80-.5);
-    /* Grain lines */
     fc.strokeStyle=`rgba(${r-15},${g-8},${b-3},0.35)`;fc.lineWidth=1;
     for(let g2=0;g2<6;g2++){
       const gx=Math.random()*2048;
       fc.beginPath();fc.moveTo(gx,y0);fc.lineTo(gx+(Math.random()-.5)*200,y0+2048/80);fc.stroke();
     }
   }
-  /* Court lines */
   fc.strokeStyle='rgba(240,200,130,0.9)';fc.lineWidth=12;
   const m=120,cw=2048-m*2,ch=2048-m*2;
   fc.strokeRect(m,m,cw,ch);
   fc.beginPath();fc.moveTo(m+cw/2,m);fc.lineTo(m+cw/2,m+ch);fc.stroke();
   fc.beginPath();fc.moveTo(m,m+ch/2);fc.lineTo(m+cw,m+ch/2);fc.stroke();
-  /* Attack lines */
   fc.lineWidth=8;fc.strokeStyle='rgba(240,200,130,0.6)';
   fc.beginPath();fc.moveTo(m,m+ch/2-280);fc.lineTo(m+cw/2,m+ch/2-280);fc.stroke();
   fc.beginPath();fc.moveTo(m+cw/2,m+ch/2+280);fc.lineTo(m+cw,m+ch/2+280);fc.stroke();
-  /* Center circle */
   fc.beginPath();fc.arc(1024,1024,120,0,Math.PI*2);fc.lineWidth=10;fc.strokeStyle='rgba(240,200,130,0.5)';fc.stroke();
   const floorTex=new THREE.CanvasTexture(floorCanvas);
   floorTex.wrapS=floorTex.wrapT=THREE.RepeatWrapping;
@@ -605,16 +597,12 @@ addEventListener('scroll',()=>navEl.classList.toggle('sc',scrollY>80),{passive:t
   const netMat=new THREE.MeshStandardMaterial({color:0xffffff,roughness:.6,metalness:.1});
   const net=new THREE.Mesh(netGeo,netMat);
   net.position.set(0,-1.8,0);net.castShadow=true;scene.add(net);
-  /* Net posts */
   const postGeo=new THREE.CylinderGeometry(.06,.06,3.2,12);
   const postMat=new THREE.MeshStandardMaterial({color:0xcccccc,metalness:.8,roughness:.2});
   [-7.1,7.1].forEach(x=>{
     const post=new THREE.Mesh(postGeo,postMat);
-    post.position.set(x,-16,0); /* Fixed from previous potential typo -16 -> -1.6 */
-    post.position.y = -1.6;
-    post.castShadow=true;scene.add(post);
+    post.position.set(x,-1.6,0);post.castShadow=true;scene.add(post);
   });
-  /* Net mesh lines */
   for(let i=0;i<16;i++){
     const ng=new THREE.BoxGeometry(14,.012,.012);
     const nm=new THREE.MeshStandardMaterial({color:0xdddddd,transparent:true,opacity:.6});
@@ -628,7 +616,7 @@ addEventListener('scroll',()=>navEl.classList.toggle('sc',scrollY>80),{passive:t
     nl.position.set(-6.9+i*.28,-1.95,0);scene.add(nl);
   }
 
-  /* ── STADIUM SEATS (background atmosphere) ── */
+  /* ── STADIUM SEATS ── */
   const seatColors=[0x1a3a6e,0x0d2340,0x243d6b,0x162d55];
   for(let row=0;row<8;row++){
     for(let seat=0;seat<60;seat++){
@@ -644,7 +632,7 @@ addEventListener('scroll',()=>navEl.classList.toggle('sc',scrollY>80),{passive:t
     }
   }
 
-  /* ── VOLLEYBALL — PHOTOREALISTIC ── */
+  /* ── VOLLEYBALL ── */
   const vt=document.createElement('canvas');vt.width=vt.height=2048;
   const vc=vt.getContext('2d');
   const bgGrad=vc.createRadialGradient(1024,900,0,1024,1024,1200);
@@ -702,7 +690,7 @@ addEventListener('scroll',()=>navEl.classList.toggle('sc',scrollY>80),{passive:t
   hilite.addColorStop(0,'rgba(255,255,255,0.22)');hilite.addColorStop(.4,'rgba(255,255,255,0.06)');hilite.addColorStop(1,'rgba(0,0,0,0)');
   vc.fillStyle=hilite;vc.fillRect(0,0,2048,2048);
   const ballTex=new THREE.CanvasTexture(vt);
-  const ballGeo=new THREE.SphereGeometry(1.8,window.innerWidth>768?128:64,window.innerWidth>768?64:32);
+  const ballGeo=new THREE.SphereGeometry(1.8,window.innerWidth > 768 ? 128 : 64, window.innerWidth > 768 ? 64 : 32);
   const ballMat=new THREE.MeshStandardMaterial({map:ballTex,roughness:.72,metalness:.06,envMapIntensity:1.2});
   const ball=new THREE.Mesh(ballGeo,ballMat);
   ball.castShadow=true;ball.position.set(0,.8,0);scene.add(ball);
@@ -740,7 +728,7 @@ addEventListener('scroll',()=>navEl.classList.toggle('sc',scrollY>80),{passive:t
   scene.add(pts);
 
   /* ── ANIMATE ── */
-  let sy=0,smx=.5,smy=.5,rx=0,ry=0;
+  let sy=0,smx=.5,smy=.5;
   addEventListener('scroll',()=>sy=window.scrollY,{passive:true});
   addEventListener('mousemove',e=>{smx=e.clientX/W();smy=e.clientY/H();});
   const clock=new THREE.Clock();
@@ -768,8 +756,17 @@ const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){cons
 revs.forEach(r=>{const el=document.getElementById(r.id);if(el){el.style.opacity=0;el.style.transform='translateY(30px)';obs.observe(el);}});
 function openPortal(){document.getElementById('portal').style.display='flex';}
 function closePortal(){document.getElementById('portal').style.display='none';}
-function showSuccess(){closePortal();document.getElementById('succ').style.display='flex';new QRCode(document.getElementById('qrc'),{text:'https://chat.whatsapp.com/SPARK_TOURNAMENT',width:150,height:150});}
+function showSuccess(){closePortal();document.getElementById('succ').style.display='flex';if(window.QRCode)new QRCode(document.getElementById('qrc'),{text:'https://chat.whatsapp.com/SPARK_TOURNAMENT',width:150,height:150});}
 document.getElementById('regBtn').onclick=openPortal;document.getElementById('navBtn').onclick=openPortal;
+
+/* ══ MOUSE GLOW ON CARDS ══ */
+document.querySelectorAll('.pc,.fi').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    card.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+    card.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+  });
+});
 </script>
 </body>
 </html>
