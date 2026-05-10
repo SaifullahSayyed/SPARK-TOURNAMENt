@@ -54,6 +54,11 @@ body{
 body.hov #cur{width:50px;height:50px;background:rgba(240,165,0,.12)}
 body.hov #cur2{opacity:0}
 
+@media(hover:none),(pointer:coarse){
+  #cur,#cur2{display:none}
+  body{cursor:auto}
+}
+
 /* CANVAS */
 #c{position:fixed;inset:0;z-index:1;width:100%;height:100%}
 
@@ -215,6 +220,10 @@ footer{padding:3rem;border-top:1px solid rgba(255,255,255,.04);background:rgba(1
 @media(max-width:600px){
   .p-body{padding:1.2rem}.p-head{padding:1.2rem 1.5rem}.p-foot{padding:1rem 1.5rem}
   .i-shell{height:480px}.cta-btn{padding:1.1rem 3rem}
+  .h-title{font-size:clamp(3.5rem,14vw,8rem)}
+  .h-sub{font-size:.85rem;letter-spacing:.2em}
+  .nb{font-size:1.3rem}
+  .nc{padding:.45rem 1.2rem;font-size:.7rem}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:duration:.01ms!important}
@@ -487,8 +496,8 @@ addEventListener('scroll',()=>navEl.classList.toggle('sc',scrollY>80),{passive:t
   if(!gl){canvas.style.display='none';return;}
   gl=null; /* let Three.js take over */
 
-  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
-  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:window.innerWidth>768,alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,window.innerWidth>768?2:1.5));
   renderer.setSize(W(),H());
   renderer.shadowMap.enabled=true;
   renderer.shadowMap.type=THREE.PCFSoftShadowMap;
@@ -693,7 +702,7 @@ addEventListener('scroll',()=>navEl.classList.toggle('sc',scrollY>80),{passive:t
   hilite.addColorStop(0,'rgba(255,255,255,0.22)');hilite.addColorStop(.4,'rgba(255,255,255,0.06)');hilite.addColorStop(1,'rgba(0,0,0,0)');
   vc.fillStyle=hilite;vc.fillRect(0,0,2048,2048);
   const ballTex=new THREE.CanvasTexture(vt);
-  const ballGeo=new THREE.SphereGeometry(1.8,128,64);
+  const ballGeo=new THREE.SphereGeometry(1.8,window.innerWidth>768?128:64,window.innerWidth>768?64:32);
   const ballMat=new THREE.MeshStandardMaterial({map:ballTex,roughness:.72,metalness:.06,envMapIntensity:1.2});
   const ball=new THREE.Mesh(ballGeo,ballMat);
   ball.castShadow=true;ball.position.set(0,.8,0);scene.add(ball);
