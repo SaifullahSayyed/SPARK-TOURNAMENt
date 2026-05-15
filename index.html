@@ -227,6 +227,111 @@ footer{padding:3rem;border-top:1px solid rgba(255,255,255,.04);background:rgba(1
   *{animation:none!important;transition:duration:.01ms!important}
   #grain{display:none}
 }
+
+/* ══ STANDINGS SECTION ══ */
+.live-dot{width:8px;height:8px;border-radius:50%;background:#ff3232;display:inline-block;margin-right:.7rem;flex-shrink:0;animation:livePulse 1.4s ease-in-out infinite}
+@keyframes livePulse{0%,100%{box-shadow:0 0 0 3px rgba(255,50,50,0.3)}50%{box-shadow:0 0 0 7px rgba(255,50,50,0.08)}}
+@keyframes nextPulse{0%,100%{opacity:1}50%{opacity:.5}}
+.standings-live-row{display:flex;align-items:center;margin-bottom:1.5rem}
+.pool-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;max-width:1100px;width:100%;margin-top:3rem;border:1px solid rgba(255,255,255,.03);border-radius:4px;overflow:hidden}
+.pool-card{background:rgba(3,12,26,.85);backdrop-filter:blur(24px);padding:0}
+.pool-card-header{padding:1.8rem 2rem 1.2rem;border-bottom:1px solid rgba(255,255,255,.05);background:rgba(6,20,48,.5)}
+.pool-name{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.08em;color:var(--gold);display:block}
+.pool-teams{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:.15em;color:var(--muted);margin-top:.2rem;display:block}
+.pool-table{width:100%;border-collapse:collapse}
+.pool-table th{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;letter-spacing:.25em;color:var(--cyan);padding:.8rem 1rem;text-align:left;border-bottom:1px solid rgba(0,229,255,.1);position:relative;cursor:default;white-space:nowrap}
+.pool-table th[data-tip]::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(3,12,26,.97);border:1px solid rgba(240,165,0,.2);border-radius:4px;padding:.3rem .7rem;font-size:.62rem;color:var(--white);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;z-index:99}
+.pool-table th[data-tip]:hover::after{opacity:1}
+.pool-table td{padding:.85rem 1rem;font-family:'Barlow Condensed',sans-serif;font-size:.95rem;font-weight:700;color:var(--white);transition:background .2s}
+.pool-table tr:hover td{background:rgba(255,255,255,.03)}
+.pool-table tr.pos-1{border-left:3px solid var(--gold)}
+.pool-table tr.pos-1 td{background:rgba(240,165,0,.05)}
+.pool-table tr.pos-1 .rank{color:var(--gold)}
+.pool-table tr.pos-2{border-left:3px solid rgba(240,165,0,.35)}
+.pool-table tr.pos-2 .rank{color:rgba(240,165,0,.65)}
+.pool-table tr.pos-3,.pool-table tr.pos-4{border-left:3px solid transparent}
+.pool-table tr.pos-3 .rank,.pool-table tr.pos-4 .rank{color:var(--muted)}
+.team-name{font-family:'DM Sans',sans-serif;font-weight:500;color:var(--white);font-size:.9rem}
+.set-ratio{color:var(--cyan)}
+.set-ratio-na{color:var(--muted)}
+.qual-line td{padding:.3rem 1rem;border-top:1px dashed rgba(0,229,255,.2);text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:.55rem;letter-spacing:.3em;color:var(--muted);background:transparent}
+.pool-b-info{background:rgba(0,229,255,.04);border:1px dashed rgba(0,229,255,.15);border-radius:2px;padding:.7rem 1.2rem;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.2em;color:var(--muted);margin:.8rem 1.2rem 1.2rem}
+.results-label{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.35em;color:var(--muted);margin-bottom:1rem;display:block;margin-top:3rem;max-width:1100px;width:100%}
+.results-strip{display:flex;gap:.8rem;overflow-x:auto;padding-bottom:.5rem;scrollbar-width:none;-webkit-overflow-scrolling:touch;max-width:1100px;width:100%}
+.results-strip::-webkit-scrollbar{display:none}
+.result-pill{display:inline-flex;align-items:center;gap:.7rem;background:rgba(3,12,26,.8);border:1px solid rgba(255,255,255,.07);border-radius:100px;padding:.55rem 1.3rem;white-space:nowrap;font-family:'Barlow Condensed',sans-serif;flex-shrink:0;opacity:0;transform:translateY(20px)}
+.pill-result{font-size:.85rem;font-weight:700;color:var(--white)}
+.pill-score{font-size:.85rem;font-weight:700;color:var(--gold)}
+.pill-score-wo{font-size:.85rem;font-weight:700;color:var(--cyan)}
+.pill-time{font-size:.62rem;letter-spacing:.12em;color:var(--muted)}
+.pill-badge{font-size:.55rem;letter-spacing:.12em;padding:.2rem .6rem;border-radius:100px;background:rgba(255,60,60,.15);border:1px solid rgba(255,60,60,.3);color:#ff6060}
+
+/* ══ SCORING SECTION ══ */
+.score-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;max-width:1100px;width:100%;margin-top:3rem;border:1px solid rgba(255,255,255,.03);border-radius:4px;overflow:hidden}
+.score-card{background:rgba(3,12,26,.85);backdrop-filter:blur(24px);padding:2.8rem 2.2rem;position:relative;opacity:0;transform:translateY(30px)}
+.score-step-num{font-family:'Bebas Neue',sans-serif;font-size:5rem;line-height:1;color:rgba(240,165,0,.08);position:absolute;top:1.5rem;left:2rem;letter-spacing:.02em}
+.score-icon{font-size:2.5rem;display:block;margin-bottom:1rem;opacity:.9;position:relative;z-index:1;text-align:center}
+.score-title{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:.12em;color:var(--white);margin-bottom:.8rem;display:block;position:relative;z-index:1}
+.score-desc{font-family:'DM Sans',sans-serif;font-size:.87rem;color:var(--muted);line-height:1.75;position:relative;z-index:1}
+.formula-box{background:rgba(0,229,255,.05);border:1px solid rgba(0,229,255,.15);border-radius:4px;padding:.8rem 1.2rem;font-family:'Barlow Condensed',sans-serif;font-size:.85rem;color:var(--cyan);margin:.8rem 0;text-align:center;letter-spacing:.05em}
+.formula-divider{border:none;border-top:1px solid rgba(0,229,255,.3);margin:.4rem auto;width:80%}
+.qual-banner{background:rgba(240,165,0,.05);border:1px solid rgba(240,165,0,.18);border-radius:4px;padding:1.8rem 2.5rem;margin-top:1.5px;display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;max-width:1100px;width:100%;opacity:0;transform:translateY(30px)}
+.qual-icon{font-size:3rem;filter:drop-shadow(0 0 12px rgba(240,165,0,.5));flex-shrink:0}
+.qual-title{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;letter-spacing:.12em;color:var(--gold);margin-bottom:.6rem;display:block}
+.qual-body{font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--muted);line-height:1.8}
+.qual-body strong{color:var(--white);font-weight:500}
+
+/* ══ SCHEDULE SECTION ══ */
+.day-block{max-width:1100px;width:100%;margin-bottom:3rem;opacity:0;transform:translateY(30px)}
+.day-header{display:flex;align-items:center;gap:1.5rem;margin-bottom:1.2rem;padding-bottom:.8rem;border-bottom:1px solid rgba(255,255,255,.05);flex-wrap:wrap}
+.day-pill{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.15em;color:var(--void);background:var(--gold);padding:.3rem 1.2rem;border-radius:100px;flex-shrink:0}
+.day-pill-3{background:linear-gradient(135deg,var(--gold),var(--gold-hi));box-shadow:0 0 16px rgba(240,165,0,.4)}
+.day-info{display:flex;flex-direction:column;gap:.2rem}
+.day-title{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:.12em;color:var(--white)}
+.day-subtitle{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.2em;color:var(--muted)}
+.session-label{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;letter-spacing:.25em;color:var(--muted);display:block;margin:.5rem 0 .8rem;padding-left:.2rem}
+.session-label-ko{color:#ff8080}
+.match-row{display:grid;grid-template-columns:80px 1fr auto;align-items:center;gap:1.5rem;padding:1rem 1.5rem;background:rgba(3,12,26,.7);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.04);border-radius:3px;margin-bottom:1.5px;transition:background .25s,border-color .25s}
+.match-row:hover{background:rgba(6,22,48,.7);border-color:rgba(240,165,0,.15)}
+.match-row-next{border-left:3px solid var(--gold)}
+.match-time{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.06em;color:var(--gold)}
+.match-teams{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:500;color:var(--white)}
+.match-vs{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.2em;color:var(--muted);margin:.15rem 0}
+.match-pool-tag{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.15em;padding:.25rem .7rem;border-radius:100px;border:1px solid;white-space:nowrap;flex-shrink:0}
+.tag-pool-a{border-color:rgba(240,165,0,.35);color:var(--gold);background:rgba(240,165,0,.07)}
+.tag-pool-b{border-color:rgba(0,229,255,.3);color:var(--cyan);background:rgba(0,229,255,.06)}
+.tag-knockout{border-color:rgba(255,100,100,.3);color:#ff8080;background:rgba(255,80,80,.06)}
+.tag-final{border-color:rgba(240,165,0,.7);color:var(--gold-hi);background:rgba(240,165,0,.12)}
+.status-done{font-size:.6rem;letter-spacing:.15em;color:#4caf50;background:rgba(76,175,80,.12);border:1px solid rgba(76,175,80,.25);border-radius:100px;padding:.2rem .7rem;font-family:'Barlow Condensed',sans-serif;font-weight:700}
+.status-next{font-size:.6rem;letter-spacing:.15em;color:var(--gold);background:rgba(240,165,0,.1);border:1px solid rgba(240,165,0,.3);border-radius:100px;padding:.2rem .7rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;animation:nextPulse 1.5s ease-in-out infinite}
+.status-upcoming{font-size:.6rem;letter-spacing:.15em;color:var(--muted);font-family:'Barlow Condensed',sans-serif}
+.status-tbd{font-size:.6rem;letter-spacing:.15em;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-style:italic}
+.match-right{display:flex;flex-direction:column;align-items:flex-end;gap:.35rem;flex-shrink:0}
+.match-score{font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:700;color:var(--gold)}
+.match-score-wo{color:var(--cyan)}
+.walkover-tip{font-size:.55rem;letter-spacing:.1em;padding:.2rem .6rem;border-radius:100px;background:rgba(255,60,60,.15);border:1px solid rgba(255,60,60,.3);color:#ff6060;font-family:'Barlow Condensed',sans-serif;cursor:default;position:relative}
+.walkover-tip:hover::after{content:attr(data-tip);position:absolute;right:0;bottom:calc(100% + 6px);background:rgba(3,12,26,.97);border:1px solid rgba(240,165,0,.2);border-radius:4px;padding:.4rem .8rem;font-size:.62rem;color:var(--white);white-space:nowrap;pointer-events:none;z-index:99;font-style:normal}
+.buffer-row{background:rgba(255,255,255,.015);border:1px dashed rgba(255,255,255,.05);border-radius:3px;padding:1rem 1.5rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.2em;color:var(--muted);margin-bottom:1.5px}
+.zidaan-glow{text-shadow:0 0 8px rgba(0,229,255,.4)}
+.grand-final-row{background:linear-gradient(135deg,rgba(240,165,0,.1),rgba(240,165,0,.04));border:1px solid rgba(240,165,0,.35);border-radius:4px;padding:2rem 2.5rem;display:grid;grid-template-columns:80px 1fr auto;align-items:center;gap:1.5rem;margin-top:.5rem;position:relative;overflow:hidden;transition:background .25s}
+.grand-final-row::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.grand-final-time{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.06em;color:var(--gold)}
+.grand-final-title{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.06em;color:var(--gold-hi);display:block}
+.grand-final-sub{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--muted);margin-top:.3rem}
+
+@media(max-width:768px){
+  .pool-grid{grid-template-columns:1fr}
+  .score-cards{grid-template-columns:1fr}
+  .qual-banner{grid-template-columns:1fr;gap:1rem;text-align:center}
+  .match-row{grid-template-columns:60px 1fr;gap:1rem}
+  .match-right{flex-direction:row;align-items:center}
+  .grand-final-row{grid-template-columns:60px 1fr;gap:1rem}
+  .th-setratio-full{display:none}
+  .th-setratio-short{display:table-cell}
+}
+@media(min-width:769px){
+  .th-setratio-short{display:none}
+}
 </style>
 </head>
 <body>
@@ -245,25 +350,23 @@ footer{padding:3rem;border-top:1px solid rgba(255,255,255,.04);background:rgba(1
 
 <nav id="nav">
   <div class="nb">⚡ THE SPARK</div>
-  <button class="nc" id="navBtn">REGISTER →</button>
+  <button class="nc" id="navBtn" style="background:rgba(255,255,255,.06);color:var(--muted);border:1px solid rgba(255,255,255,.1);cursor:default;pointer-events:none">🔒 REGISTRATION CLOSED</button>
 </nav>
 
 <div class="ticker">
   <div class="t-track">
-    <span class="ti"><span class="td"></span>REGISTRATION OPEN — ₹300 PER TEAM</span>
+    <span class="ti"><span class="td"></span>🔒 REGISTRATION CLOSED — TOURNAMENT IN PROGRESS</span>
     <span class="ti"><span class="td"></span>1ST PLACE — TROPHY + CASH PRIZE</span>
-    <span class="ti"><span class="td"></span>CASH PRIZE GROWS WITH REGISTRATIONS</span>
-    <span class="ti"><span class="td"></span>PURE KNOCKOUT — WIN OR GO HOME FROM MATCH 1</span>
+    <span class="ti"><span class="td"></span>TWO POOLS · LEAGUE STAGE · KNOCKOUT SEMIFINALS &amp; FINAL</span>
     <span class="ti"><span class="td"></span>₹500 BONUS — PLAYER OF THE FINAL</span>
     <span class="ti"><span class="td"></span>2ND PLACE WINS TROPHY</span>
-    <span class="ti"><span class="td"></span>LIMITED SPOTS — REGISTER NOW</span>
-    <span class="ti"><span class="td"></span>REGISTRATION OPEN — ₹300 PER TEAM</span>
+    <span class="ti"><span class="td"></span>FOLLOW LIVE STANDINGS · SCROLL DOWN</span>
+    <span class="ti"><span class="td"></span>🔒 REGISTRATION CLOSED — TOURNAMENT IN PROGRESS</span>
     <span class="ti"><span class="td"></span>1ST PLACE — TROPHY + CASH PRIZE</span>
-    <span class="ti"><span class="td"></span>CASH PRIZE GROWS WITH REGISTRATIONS</span>
-    <span class="ti"><span class="td"></span>PURE KNOCKOUT — WIN OR GO HOME FROM MATCH 1</span>
+    <span class="ti"><span class="td"></span>TWO POOLS · LEAGUE STAGE · KNOCKOUT SEMIFINALS &amp; FINAL</span>
     <span class="ti"><span class="td"></span>₹500 BONUS — PLAYER OF THE FINAL</span>
     <span class="ti"><span class="td"></span>2ND PLACE WINS TROPHY</span>
-    <span class="ti"><span class="td"></span>LIMITED SPOTS — REGISTER NOW</span>
+    <span class="ti"><span class="td"></span>FOLLOW LIVE STANDINGS · SCROLL DOWN</span>
   </div>
 </div>
 
@@ -396,26 +499,368 @@ footer{padding:3rem;border-top:1px solid rgba(255,255,255,.04);background:rgba(1
 <!-- FORMAT -->
 <section class="sec" id="s-format">
   <div class="s-eye" id="se3">HOW IT WORKS</div>
-  <h2 class="s-h" id="sh3">PURE<br>KNOCKOUT</h2>
+  <h2 class="s-h" id="sh3">TWO POOL<br>FORMAT</h2>
   <div class="fgrid" id="fgrid">
-    <div class="fi" id="fi1"><span class="fi-n">01</span><div class="fi-t">STRAIGHT KNOCKOUT</div><div class="fi-d">No group stages. Every match is win-or-go-home from the very first whistle.</div></div>
-    <div class="fi" id="fi2"><span class="fi-n">02</span><div class="fi-t">SINGLE ELIMINATION</div><div class="fi-d">Lose once and you're out. One team stands alone as champion.</div></div>
-    <div class="fi" id="fi3"><span class="fi-n">03</span><div class="fi-t">BEST OF 3 SETS</div><div class="fi-d">Matches are best of 3 sets to 25 points. Comebacks are always possible.</div></div>
+    <div class="fi" id="fi1"><span class="fi-n">01</span><div class="fi-t">LEAGUE STAGE</div><div class="fi-d">8 teams split into 2 pools of 4. Every team plays all others in their pool — top 2 from each pool advance.</div></div>
+    <div class="fi" id="fi2"><span class="fi-n">02</span><div class="fi-t">KNOCKOUT SEMIFINALS</div><div class="fi-d">Pool A 1st vs Pool B 2nd · Pool B 1st vs Pool A 2nd. Winners go straight to the Grand Final.</div></div>
+    <div class="fi" id="fi3"><span class="fi-n">03</span><div class="fi-t">BEST OF 3 SETS</div><div class="fi-d">Every match is best of 3 sets to 25 points. Rankings decided by wins, then set ratio.</div></div>
     <div class="fi" id="fi4"><span class="fi-n">04</span><div class="fi-t">PRIZES</div><div class="fi-d">1st: Trophy + Cash. 2nd: Trophy. Player of Final: ₹500 bonus.</div></div>
+  </div>
+</section>
+
+<!-- STANDINGS -->
+<section class="sec" id="standings-section" style="min-height:unset;padding-top:7rem;padding-bottom:7rem">
+  <div class="standings-live-row" id="standings-eye" style="opacity:0;transform:translateY(20px)">
+    <span class="live-dot"></span>
+    <span style="font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.5em;color:var(--cyan)">LIVE</span>
+  </div>
+  <h2 class="s-h" id="standings-h" style="opacity:0;transform:translateY(30px)">POOL STANDINGS</h2>
+  <p style="font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--muted);margin-top:.8rem">Updated after every match &middot; Tournament in progress</p>
+
+  <!-- Pool cards -->
+  <div class="pool-grid">
+    <!-- POOL A -->
+    <div class="pool-card" id="pool-a-card" style="opacity:0;transform:translateY(30px)">
+      <div class="pool-card-header">
+        <span class="pool-name">POOL A</span>
+        <span class="pool-teams">SPARK GLADIATORS · LODHA TITANS · ROYAL BOYS · SPARK UNITED</span>
+      </div>
+      <table class="pool-table">
+        <thead>
+          <tr>
+            <th data-tip="Position">#</th>
+            <th>TEAM</th>
+            <th data-tip="Matches Played">P</th>
+            <th data-tip="Wins">W</th>
+            <th data-tip="Losses">L</th>
+            <th data-tip="Sets Won">SW</th>
+            <th data-tip="Sets Lost">SL</th>
+            <th class="th-setratio-full" data-tip="SW ÷ (SW + SL)">SET RATIO</th>
+            <th class="th-setratio-short" data-tip="SW ÷ (SW + SL)">S/R</th>
+          </tr>
+        </thead>
+        <!-- UPDATE POOL A STANDINGS HERE -->
+        <tbody>
+          <tr class="pos-1">
+            <td class="rank">1</td>
+            <td><span class="team-name">Lodha Titans</span></td>
+            <td>2</td><td>2</td><td>0</td><td>4</td><td>1</td>
+            <td class="set-ratio">0.80</td>
+          </tr>
+          <tr class="pos-2">
+            <td class="rank">2</td>
+            <td><span class="team-name">Royal Boys</span></td>
+            <td>2</td><td>1</td><td>1</td><td>2</td><td>2</td>
+            <td class="set-ratio">0.50</td>
+          </tr>
+          <tr class="qual-line"><td colspan="8">— QUALIFICATION LINE —</td></tr>
+          <tr class="pos-3">
+            <td class="rank">3</td>
+            <td><span class="team-name">Spark Gladiators</span></td>
+            <td>3</td><td>1</td><td>2</td><td>3</td><td>5</td>
+            <td class="set-ratio">0.38</td>
+          </tr>
+          <tr class="pos-4">
+            <td class="rank">4</td>
+            <td><span class="team-name">Spark United</span></td>
+            <td>1</td><td>0</td><td>1</td><td>1</td><td>2</td>
+            <td class="set-ratio">0.33</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- POOL B -->
+    <div class="pool-card" id="pool-b-card" style="opacity:0;transform:translateY(30px)">
+      <div class="pool-card-header">
+        <span class="pool-name">POOL B</span>
+        <span class="pool-teams">ZIDAAN WARRIORS · VATSU WARRIORS · RUNWAL SPARTANS · SPARK DOMINATORS</span>
+      </div>
+      <table class="pool-table">
+        <thead>
+          <tr>
+            <th data-tip="Position">#</th>
+            <th>TEAM</th>
+            <th data-tip="Matches Played">P</th>
+            <th data-tip="Wins">W</th>
+            <th data-tip="Losses">L</th>
+            <th data-tip="Sets Won">SW</th>
+            <th data-tip="Sets Lost">SL</th>
+            <th class="th-setratio-full" data-tip="SW ÷ (SW + SL)">SET RATIO</th>
+            <th class="th-setratio-short" data-tip="SW ÷ (SW + SL)">S/R</th>
+          </tr>
+        </thead>
+        <!-- UPDATE POOL B STANDINGS HERE -->
+        <tbody>
+          <tr class="pos-1">
+            <td class="rank">1</td>
+            <td><span class="team-name">Zidaan Warriors</span></td>
+            <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+            <td class="set-ratio-na">—</td>
+          </tr>
+          <tr class="pos-2">
+            <td class="rank">2</td>
+            <td><span class="team-name">Vatsu Warriors</span></td>
+            <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+            <td class="set-ratio-na">—</td>
+          </tr>
+          <tr class="pos-3">
+            <td class="rank">3</td>
+            <td><span class="team-name">Runwal Spartans</span></td>
+            <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+            <td class="set-ratio-na">—</td>
+          </tr>
+          <tr class="pos-4">
+            <td class="rank">4</td>
+            <td><span class="team-name">Spark Dominators</span></td>
+            <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+            <td class="set-ratio-na">—</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pool-b-info">⏳ MATCHES BEGIN DAY 2 · SATURDAY MAY 16</div>
+    </div>
+  </div>
+
+  <!-- Recent Results Strip -->
+  <span class="results-label">COMPLETED MATCHES</span>
+  <div class="results-strip" id="results-strip">
+    <!-- ADD NEW RESULT PILLS HERE AFTER EACH MATCH -->
+    <div class="result-pill" id="rp1">
+      <span class="pill-result">✅ GLADIATORS def. SPARK UNITED</span>
+      <span style="color:var(--muted);font-size:.7rem">|</span>
+      <span class="pill-score">2–1</span>
+      <span style="color:var(--muted);font-size:.7rem">|</span>
+      <span class="pill-time">DAY 1 · 6:00 AM</span>
+    </div>
+    <div class="result-pill" id="rp2">
+      <span class="pill-result">✅ LODHA TITANS def. ROYAL BOYS</span>
+      <span style="color:var(--muted);font-size:.7rem">|</span>
+      <span class="pill-score-wo">W/O</span>
+      <span style="color:var(--muted);font-size:.7rem">|</span>
+      <span class="pill-time">DAY 1 · 7:00 AM</span>
+      <span class="pill-badge">WALKOVER</span>
+    </div>
+    <div class="result-pill" id="rp3">
+      <span class="pill-result">✅ LODHA TITANS def. GLADIATORS</span>
+      <span style="color:var(--muted);font-size:.7rem">|</span>
+      <span class="pill-score">2–1</span>
+      <span style="color:var(--muted);font-size:.7rem">|</span>
+      <span class="pill-time">DAY 1 · 9:00 AM</span>
+    </div>
+    <div class="result-pill" id="rp4">
+      <span class="pill-result">✅ ROYAL BOYS def. GLADIATORS</span>
+      <span style="color:var(--muted);font-size:.7rem">|</span>
+      <span class="pill-score">2–0</span>
+      <span style="color:var(--muted);font-size:.7rem">|</span>
+      <span class="pill-time">DAY 1 · 9:00 AM</span>
+    </div>
+  </div>
+</section>
+
+<!-- SCORING -->
+<section class="sec" id="scoring-section" style="min-height:unset;padding-top:7rem;padding-bottom:7rem">
+  <div class="s-eye" id="scoring-eye" style="opacity:0;transform:translateY(20px)">SCORING SYSTEM</div>
+  <h2 class="s-h" id="scoring-h" style="opacity:0;transform:translateY(30px)">HOW STANDINGS WORK</h2>
+  <p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--muted);margin-top:1rem;max-width:560px;text-align:center;line-height:1.75">We believe in total transparency — here's exactly how your position is decided.</p>
+
+  <div class="score-cards" style="margin-top:3rem">
+    <div class="score-card" id="score-card-1">
+      <span class="score-step-num">01</span>
+      <span class="score-icon">🏆</span>
+      <span class="score-title">WINS COME FIRST</span>
+      <p class="score-desc">Teams are ranked by number of match wins. Win = 2 sets before the opponent.<br><br>A walkover (opponent absent) counts as a win with score 2–0 for the present team. The team that didn't show up gets 0 sets, 0 points, and a loss recorded.</p>
+    </div>
+    <div class="score-card" id="score-card-2">
+      <span class="score-step-num">02</span>
+      <span class="score-icon">📊</span>
+      <span class="score-title">SET RATIO — THE TIEBREAKER</span>
+      <p class="score-desc">If two teams have the same number of wins, Set Ratio decides their order.</p>
+      <div class="formula-box">
+        <div>Sets Won</div>
+        <hr class="formula-divider">
+        <div>Sets Won + Sets Lost</div>
+      </div>
+      <p class="score-desc">Higher ratio = higher position.<br>Example: 4 SW, 1 SL → 4÷5 = <span style="color:var(--cyan);font-weight:700">0.80</span></p>
+    </div>
+    <div class="score-card" id="score-card-3">
+      <span class="score-step-num">03</span>
+      <span class="score-icon">🔢</span>
+      <span class="score-title">POINT RATIO — LAST RESORT</span>
+      <p class="score-desc">If Set Ratio is also equal, total points scored across all sets decide the final ranking.</p>
+      <div class="formula-box">
+        <div>Points Scored</div>
+        <hr class="formula-divider">
+        <div>Points Scored + Points Conceded</div>
+      </div>
+      <p class="score-desc">This is rarely needed but ensures no two teams ever finish level.</p>
+    </div>
+  </div>
+
+  <div class="qual-banner" id="qual-banner">
+    <span class="qual-icon">⚡</span>
+    <div>
+      <span class="qual-title">HOW TEAMS QUALIFY FOR THE KNOCKOUT STAGE</span>
+      <div class="qual-body">
+        Top 2 teams from Pool A and top 2 teams from Pool B advance to the Semifinals on Day 3.<br><br>
+        <strong>Semifinal 1: Pool A 1st place vs Pool B 2nd place</strong><br>
+        <strong>Semifinal 2: Pool B 1st place vs Pool A 2nd place</strong><br><br>
+        The two semifinal winners meet in the Grand Final at 5:00 PM on Sunday May 17.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="sec" id="schedule-section" style="min-height:unset;padding-top:7rem;padding-bottom:7rem">
+  <div class="s-eye" id="schedule-eye" style="opacity:0;transform:translateY(20px)">MATCH SCHEDULE</div>
+  <h2 class="s-h" id="schedule-h" style="opacity:0;transform:translateY(30px)">ALL FIXTURES</h2>
+  <p style="font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--muted);margin-top:.8rem">Spark Ground · May 15–17, 2026</p>
+
+  <!-- UPDATE MATCH STATUSES AND SCORES HERE -->
+
+  <!-- DAY 1 -->
+  <div class="day-block" id="day1-block" style="margin-top:3rem">
+    <div class="day-header">
+      <span class="day-pill">DAY 1</span>
+      <div class="day-info">
+        <span class="day-title">FRIDAY, MAY 15</span>
+        <span class="day-subtitle">POOL A FOCUS | GLADIATORS CONCLUDE</span>
+      </div>
+    </div>
+    <span class="session-label">MORNING SESSION · 6:00 AM – 10:00 AM</span>
+    <!-- UPDATE MATCH STATUSES AND SCORES HERE -->
+    <div class="match-row">
+      <span class="match-time">6:00 AM</span>
+      <div><div class="match-teams">Spark Gladiators</div><div class="match-vs">vs</div><div class="match-teams">Spark United</div></div>
+      <div class="match-right"><span class="tag-pool-a match-pool-tag">POOL A</span><span class="status-done">✅ DONE</span><span class="match-score">2–1</span></div>
+    </div>
+    <div class="match-row">
+      <span class="match-time">7:00 AM</span>
+      <div><div class="match-teams">Lodha Titans</div><div class="match-vs">vs</div><div class="match-teams">Royal Boys</div></div>
+      <div class="match-right"><span class="tag-pool-a match-pool-tag">POOL A</span><span class="status-done">✅ DONE</span><div style="display:flex;align-items:center;gap:.5rem"><span class="match-score-wo match-score">W/O</span><span class="walkover-tip" data-tip="Royal Boys were absent. Lodha Titans awarded the win.">WALKOVER</span></div></div>
+    </div>
+    <div class="match-row">
+      <span class="match-time">9:00 AM</span>
+      <div><div class="match-teams">Lodha Titans</div><div class="match-vs">vs</div><div class="match-teams">Spark Gladiators</div></div>
+      <div class="match-right"><span class="tag-pool-a match-pool-tag">POOL A</span><span class="status-done">✅ DONE</span><span class="match-score">2–1</span></div>
+    </div>
+    <div class="match-row">
+      <span class="match-time">9:00 AM</span>
+      <div><div class="match-teams">Royal Boys</div><div class="match-vs">vs</div><div class="match-teams">Spark Gladiators</div></div>
+      <div class="match-right"><span class="tag-pool-a match-pool-tag">POOL A</span><span class="status-done">✅ DONE</span><span class="match-score">2–0</span></div>
+    </div>
+    <span class="session-label" style="margin-top:1.5rem">EVENING SESSION · 4:00 PM – 7:00 PM</span>
+    <!-- UPDATE MATCH STATUSES AND SCORES HERE -->
+    <div class="match-row match-row-next">
+      <span class="match-time">4:00 PM</span>
+      <div><div class="match-teams">Lodha Titans</div><div class="match-vs">vs</div><div class="match-teams">Spark United</div></div>
+      <div class="match-right"><span class="tag-pool-a match-pool-tag">POOL A</span><span class="status-next">🔜 NEXT</span></div>
+    </div>
+    <div class="match-row">
+      <span class="match-time">5:00 PM</span>
+      <div><div class="match-teams">Royal Boys</div><div class="match-vs">vs</div><div class="match-teams">Spark United</div></div>
+      <div class="match-right"><span class="tag-pool-a match-pool-tag">POOL A</span><span class="status-upcoming">UPCOMING</span></div>
+    </div>
+    <div class="match-row">
+      <span class="match-time">6:00 PM</span>
+      <div><div class="match-teams">Vatsu Warriors</div><div class="match-vs">vs</div><div class="match-teams">Runwal Spartans</div></div>
+      <div class="match-right"><span class="tag-pool-b match-pool-tag">POOL B</span><span class="status-upcoming">UPCOMING</span></div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day-block" id="day2-block">
+    <div class="day-header">
+      <span class="day-pill">DAY 2</span>
+      <div class="day-info">
+        <span class="day-title">SATURDAY, MAY 16</span>
+        <span class="day-subtitle">POOL B COMPLETES | ZIDAAN MARATHON</span>
+      </div>
+    </div>
+    <span class="session-label">MORNING SESSION · 6:00 AM – 10:00 AM</span>
+    <!-- UPDATE MATCH STATUSES AND SCORES HERE -->
+    <div class="match-row">
+      <span class="match-time">6:00 AM</span>
+      <div><div class="match-teams">Vatsu Warriors</div><div class="match-vs">vs</div><div class="match-teams">Spark Dominators</div></div>
+      <div class="match-right"><span class="tag-pool-b match-pool-tag">POOL B</span><span class="status-upcoming">UPCOMING</span></div>
+    </div>
+    <div class="match-row">
+      <span class="match-time">7:00 AM</span>
+      <div><div class="match-teams">Runwal Spartans</div><div class="match-vs">vs</div><div class="match-teams">Spark Dominators</div></div>
+      <div class="match-right"><span class="tag-pool-b match-pool-tag">POOL B</span><span class="status-upcoming">UPCOMING</span></div>
+    </div>
+    <div class="buffer-row">⏸ BUFFER TIME · 8:00 AM – 10:00 AM</div>
+    <span class="session-label" style="margin-top:1.5rem">EVENING SESSION · 4:00 PM – 7:00 PM · ZIDAAN WARRIORS MARATHON — 3 CONSECUTIVE MATCHES</span>
+    <!-- UPDATE MATCH STATUSES AND SCORES HERE -->
+    <div class="match-row">
+      <span class="match-time">4:00 PM</span>
+      <div><div class="match-teams"><span class="zidaan-glow">Zidaan Warriors</span></div><div class="match-vs">vs</div><div class="match-teams">Vatsu Warriors</div></div>
+      <div class="match-right"><span class="tag-pool-b match-pool-tag">POOL B</span><span class="status-upcoming">UPCOMING</span></div>
+    </div>
+    <div class="match-row">
+      <span class="match-time">5:00 PM</span>
+      <div><div class="match-teams"><span class="zidaan-glow">Zidaan Warriors</span></div><div class="match-vs">vs</div><div class="match-teams">Runwal Spartans</div></div>
+      <div class="match-right"><span class="tag-pool-b match-pool-tag">POOL B</span><span class="status-upcoming">UPCOMING</span></div>
+    </div>
+    <div class="match-row">
+      <span class="match-time">6:00 PM</span>
+      <div><div class="match-teams"><span class="zidaan-glow">Zidaan Warriors</span></div><div class="match-vs">vs</div><div class="match-teams">Spark Dominators</div></div>
+      <div class="match-right"><span class="tag-pool-b match-pool-tag">POOL B</span><span class="status-upcoming">UPCOMING</span></div>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day-block" id="day3-block">
+    <div class="day-header">
+      <span class="day-pill day-pill-3">DAY 3</span>
+      <div class="day-info">
+        <span class="day-title">SUNDAY, MAY 17</span>
+        <span class="day-subtitle">KNOCKOUT STAGE | SEMIFINALS &amp; GRAND FINAL</span>
+      </div>
+    </div>
+    <span class="session-label session-label-ko">MORNING SESSION · SEMIFINALS · 6:00 AM – 10:00 AM</span>
+    <!-- UPDATE MATCH STATUSES AND SCORES HERE -->
+    <div class="match-row">
+      <span class="match-time">6:30 AM</span>
+      <div>
+        <div class="match-teams">Semifinal 1</div>
+        <div class="match-vs">POOL A 1st vs POOL B 2nd</div>
+        <div class="match-teams" style="color:var(--muted);font-size:.8rem;font-weight:400">TBD — determined after league stage</div>
+      </div>
+      <div class="match-right"><span class="tag-knockout match-pool-tag">KNOCKOUT</span><span class="status-tbd">TBD</span></div>
+    </div>
+    <div class="match-row">
+      <span class="match-time">8:15 AM</span>
+      <div>
+        <div class="match-teams">Semifinal 2</div>
+        <div class="match-vs">POOL B 1st vs POOL A 2nd</div>
+        <div class="match-teams" style="color:var(--muted);font-size:.8rem;font-weight:400">TBD — determined after league stage</div>
+      </div>
+      <div class="match-right"><span class="tag-knockout match-pool-tag">KNOCKOUT</span><span class="status-tbd">TBD</span></div>
+    </div>
+    <span class="session-label session-label-ko" style="margin-top:1.5rem">EVENING SESSION · GRAND FINAL · 5:00 PM</span>
+    <!-- UPDATE MATCH STATUSES AND SCORES HERE -->
+    <div class="grand-final-row">
+      <span class="grand-final-time">5:00 PM</span>
+      <div>
+        <span class="grand-final-title">🏆 GRAND FINAL</span>
+        <p class="grand-final-sub">Champions will be decided here</p>
+      </div>
+      <div class="match-right"><span class="tag-final match-pool-tag">FINAL</span></div>
+    </div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="sec cta-sec" id="s-cta">
-  <div class="s-eye" id="se4" style="justify-content:center">READY TO COMPETE</div>
-  <h2 class="s-h" id="sh4" style="font-size:clamp(4.5rem,12vw,12rem)">REGISTER<br>NOW</h2>
-  <p class="cta-copy" id="ccp">Step onto the court. Claim your spark.</p>
-  <div class="btn-wrap" id="bw">
-    <div class="btn-glow"></div>
-    <div class="btn-rings"><div class="b-ring"></div><div class="b-ring"></div><div class="b-ring"></div></div>
-    <button class="cta-btn" id="regBtn">⚡ REGISTER YOUR TEAM →</button>
+  <div class="s-eye" id="se4" style="justify-content:center">TOURNAMENT IN PROGRESS</div>
+  <h2 class="s-h" id="sh4" style="font-size:clamp(4.5rem,12vw,12rem)">REGISTRATION<br>CLOSED</h2>
+  <p class="cta-copy" id="ccp">The squads are locked. The battle has begun.</p>
+  <div class="btn-wrap" id="bw" style="pointer-events:none">
+    <button class="cta-btn" id="regBtn" disabled style="background:rgba(255,255,255,.06);color:var(--muted);cursor:default;box-shadow:none;animation:none;border:1px solid rgba(255,255,255,.1)">🔒 REGISTRATION CLOSED</button>
   </div>
-  <p class="cta-note" id="cn">₹300 ENTRY · KNOCKOUT FROM MATCH 1 · 1ST PLACE TROPHY + CASH · ₹500 PLAYER BONUS · CONFIRMATION EMAIL SENT INSTANTLY</p>
+  <p class="cta-note" id="cn">FOLLOW THE LIVE STANDINGS ABOVE · CHECK THE FULL MATCH SCHEDULE · GRAND FINAL — SUNDAY MAY 17 · 5:00 PM</p>
 </section>
 
 <footer>
@@ -751,9 +1196,38 @@ function startHero(){
   const s=(id,d,st)=>{setTimeout(()=>{const el=document.getElementById(id);if(el)Object.assign(el.style,{transition:'opacity .9s,transform .9s',...st});},d);};
   s('hk',300,{opacity:1,transform:'none'});s('ht',500,{opacity:1,transform:'none'});s('hd',900,{opacity:1});s('hs',1100,{opacity:1,transform:'none'});s('sh',1600,{opacity:1});
 }
-const revs=[{id:'se1',d:0},{id:'sh1',d:100},{id:'pc1',d:200},{id:'pc2',d:350},{id:'pc3',d:500},{id:'se2',d:0},{id:'sh2',d:100},{id:'ts',d:200},{id:'tl',d:400},{id:'tsub',d:500},{id:'tbg',d:600},{id:'se3',d:0},{id:'sh3',d:100},{id:'fi1',d:200},{id:'fi2',d:300},{id:'fi3',d:400},{id:'fi4',d:500},{id:'se4',d:0},{id:'sh4',d:100},{id:'ccp',d:200},{id:'bw',d:300},{id:'cn',d:450}];
-const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const m=revs.find(r=>r.id===e.target.id);setTimeout(()=>{e.target.style.opacity=1;e.target.style.transform='none';},m?m.d:0);obs.unobserve(e.target);}});},{threshold:.1});
+const revs=[
+  {id:'se1',d:0},{id:'sh1',d:100},{id:'pc1',d:200},{id:'pc2',d:350},{id:'pc3',d:500},
+  {id:'se2',d:0},{id:'sh2',d:100},{id:'ts',d:200},{id:'tl',d:400},{id:'tsub',d:500},{id:'tbg',d:600},
+  {id:'se3',d:0},{id:'sh3',d:100},{id:'fi1',d:200},{id:'fi2',d:300},{id:'fi3',d:400},{id:'fi4',d:500},
+  // Standings section
+  {id:'standings-eye',d:0},{id:'standings-h',d:120},
+  {id:'pool-a-card',d:200},{id:'pool-b-card',d:350},
+  {id:'results-strip',d:480},
+  // Scoring section
+  {id:'scoring-eye',d:0},{id:'scoring-h',d:120},
+  {id:'score-card-1',d:200},{id:'score-card-2',d:320},{id:'score-card-3',d:440},
+  {id:'qual-banner',d:560},
+  // Schedule section
+  {id:'schedule-eye',d:0},{id:'schedule-h',d:120},
+  {id:'day1-block',d:200},{id:'day2-block',d:300},{id:'day3-block',d:400},
+  // CTA
+  {id:'se4',d:0},{id:'sh4',d:100},{id:'ccp',d:200},{id:'bw',d:300},{id:'cn',d:450}
+];
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const m=revs.find(r=>r.id===e.target.id);setTimeout(()=>{e.target.style.opacity=1;e.target.style.transform='none';e.target.style.transition='opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)';},m?m.d:0);obs.unobserve(e.target);}});},{threshold:.1});
 revs.forEach(r=>{const el=document.getElementById(r.id);if(el){el.style.opacity=0;el.style.transform='translateY(30px)';obs.observe(el);}});
+
+// Stagger pool A table rows
+const poolAObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const rows=e.target.querySelectorAll('tbody tr:not(.qual-line)');rows.forEach((r,i)=>{r.style.opacity=0;r.style.transform='translateY(12px)';setTimeout(()=>{r.style.transition='opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)';r.style.opacity=1;r.style.transform='none';},200+i*60);});poolAObs.unobserve(e.target);}});},{threshold:.1});
+const poolACard=document.getElementById('pool-a-card');if(poolACard)poolAObs.observe(poolACard);
+
+// Stagger pool B table rows
+const poolBObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const rows=e.target.querySelectorAll('tbody tr');rows.forEach((r,i)=>{r.style.opacity=0;r.style.transform='translateY(12px)';setTimeout(()=>{r.style.transition='opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)';r.style.opacity=1;r.style.transform='none';},200+i*60);});poolBObs.unobserve(e.target);}});},{threshold:.1});
+const poolBCard=document.getElementById('pool-b-card');if(poolBCard)poolBObs.observe(poolBCard);
+
+// Stagger result pills
+const pillsObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const pills=e.target.querySelectorAll('.result-pill');pills.forEach((p,i)=>{setTimeout(()=>{p.style.transition='opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)';p.style.opacity=1;p.style.transform='none';},i*80);});pillsObs.unobserve(e.target);}});},{threshold:.1});
+const strip=document.getElementById('results-strip');if(strip)pillsObs.observe(strip);
 function openPortal(){document.getElementById('portal').style.display='flex';}
 function closePortal(){document.getElementById('portal').style.display='none';}
 function showSuccess(){closePortal();document.getElementById('succ').style.display='flex';if(window.QRCode)new QRCode(document.getElementById('qrc'),{text:'https://chat.whatsapp.com/SPARK_TOURNAMENT',width:150,height:150});}
