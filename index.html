@@ -159,6 +159,11 @@ nav.sc{background:rgba(1,6,14,.88);backdrop-filter:blur(24px);border-bottom:1px 
 .fi-t{font-family:var(--font-bc);font-size:1.15rem;font-weight:700;letter-spacing:.1em;color:var(--white);margin-bottom:.5rem}
 .fi-d{font-size:.85rem;color:var(--muted);line-height:1.75}
 
+/* GALLERY */
+.g-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;max-width:1100px;width:100%;margin-top:3rem;opacity:0;transform:translateY(30px)}
+.g-img{width:100%;height:auto;border-radius:4px;border:1px solid rgba(240,165,0,.3);box-shadow:0 10px 40px rgba(0,0,0,.5);transition:transform .4s var(--spring),box-shadow .4s}
+.g-img:hover{transform:scale(1.03);box-shadow:0 15px 50px rgba(240,165,0,.4)}
+
 /* CTA */
 .cta-sec{text-align:center;padding-bottom:10rem;background:radial-gradient(ellipse at 50% 50%,rgba(240,165,0,.04),transparent 55%)}
 .cta-copy{font-family:var(--font-bc);font-size:clamp(.85rem,1.5vw,1.05rem);color:var(--muted);letter-spacing:.12em;font-weight:300;margin-top:1rem;opacity:0}
@@ -350,23 +355,23 @@ footer{padding:3rem;border-top:1px solid rgba(255,255,255,.04);background:rgba(1
 
 <nav id="nav">
   <div class="nb">⚡ THE SPARK</div>
-  <button class="nc" id="navBtn" style="background:rgba(255,255,255,.06);color:var(--muted);border:1px solid rgba(255,255,255,.1);cursor:default;pointer-events:none">🔒 REGISTRATION CLOSED</button>
+  <button class="nc" id="navBtn" style="background:rgba(255,255,255,.06);color:var(--gold);border:1px solid rgba(240,165,0,.3);cursor:default;pointer-events:none">🏆 TOURNAMENT COMPLETED</button>
 </nav>
 
 <div class="ticker">
   <div class="t-track">
-    <span class="ti"><span class="td"></span>🔒 REGISTRATION CLOSED — TOURNAMENT IN PROGRESS</span>
+    <span class="ti"><span class="td"></span>🏆 TOURNAMENT COMPLETED — THANK YOU TO ALL TEAMS</span>
     <span class="ti"><span class="td"></span>1ST PLACE — TROPHY + CASH PRIZE</span>
     <span class="ti"><span class="td"></span>TWO POOLS · LEAGUE STAGE · KNOCKOUT SEMIFINALS &amp; FINAL</span>
     <span class="ti"><span class="td"></span>₹500 BONUS — PLAYER OF THE FINAL</span>
     <span class="ti"><span class="td"></span>2ND PLACE WINS TROPHY</span>
-    <span class="ti"><span class="td"></span>FOLLOW LIVE STANDINGS · SCROLL DOWN</span>
-    <span class="ti"><span class="td"></span>🔒 REGISTRATION CLOSED — TOURNAMENT IN PROGRESS</span>
+    <span class="ti"><span class="td"></span>CHECK FINAL STANDINGS · SCROLL DOWN</span>
+    <span class="ti"><span class="td"></span>🏆 TOURNAMENT COMPLETED — THANK YOU TO ALL TEAMS</span>
     <span class="ti"><span class="td"></span>1ST PLACE — TROPHY + CASH PRIZE</span>
     <span class="ti"><span class="td"></span>TWO POOLS · LEAGUE STAGE · KNOCKOUT SEMIFINALS &amp; FINAL</span>
     <span class="ti"><span class="td"></span>₹500 BONUS — PLAYER OF THE FINAL</span>
     <span class="ti"><span class="td"></span>2ND PLACE WINS TROPHY</span>
-    <span class="ti"><span class="td"></span>FOLLOW LIVE STANDINGS · SCROLL DOWN</span>
+    <span class="ti"><span class="td"></span>CHECK FINAL STANDINGS · SCROLL DOWN</span>
   </div>
 </div>
 
@@ -380,10 +385,21 @@ footer{padding:3rem;border-top:1px solid rgba(255,255,255,.04);background:rgba(1
     <span class="l2">TOURNAMENT</span>
   </div>
   <div class="h-div" id="hd"></div>
-  <p class="h-sub" id="hs">WHERE CHAMPIONS ARE FORGED IN LIGHTNING</p>
+  <p class="h-sub" id="hs">THE CHAMPIONS HAVE BEEN CROWNED</p>
   <div class="scroll-hint" id="sh">
     <div class="s-line"></div>
     <span class="s-txt">SCROLL</span>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec" id="s-gallery" style="min-height:unset;padding-top:5rem;padding-bottom:5rem">
+  <div class="s-eye" id="se-g">THE SPARK 2026</div>
+  <h2 class="s-h" id="sh-g">CHAMPIONS<br>GALLERY</h2>
+  <div class="g-grid" id="gg">
+    <img src="assets/img1.jpg" alt="Tournament Photo 1" class="g-img">
+    <img src="assets/img2.jpg" alt="Tournament Photo 2" class="g-img">
+    <img src="assets/img3.jpg" alt="Tournament Photo 3" class="g-img">
   </div>
 </section>
 
@@ -511,11 +527,10 @@ footer{padding:3rem;border-top:1px solid rgba(255,255,255,.04);background:rgba(1
 <!-- STANDINGS -->
 <section class="sec" id="standings-section" style="min-height:unset;padding-top:7rem;padding-bottom:7rem">
   <div class="standings-live-row" id="standings-eye" style="opacity:0;transform:translateY(20px)">
-    <span class="live-dot"></span>
-    <span style="font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.5em;color:var(--cyan)">LIVE</span>
+    <span style="font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.5em;color:var(--gold)">FINAL STANDINGS</span>
   </div>
   <h2 class="s-h" id="standings-h" style="opacity:0;transform:translateY(30px)">POOL STANDINGS</h2>
-  <p style="font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--muted);margin-top:.8rem">Updated after every match &middot; Tournament in progress</p>
+  <p style="font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--muted);margin-top:.8rem">Tournament Complete</p>
 
   <!-- Pool cards -->
   <div class="pool-grid">
@@ -594,32 +609,32 @@ footer{padding:3rem;border-top:1px solid rgba(255,255,255,.04);background:rgba(1
         <tbody>
           <tr class="pos-1">
             <td class="rank">1</td>
-            <td><span class="team-name">Vatsu Warriors</span></td>
-            <td>1</td><td>1</td><td>0</td><td>2</td><td>1</td>
-            <td class="set-ratio">0.67</td>
+            <td><span class="team-name">Spark Dominators</span></td>
+            <td>3</td><td>3</td><td>0</td><td>6</td><td>2</td>
+            <td class="set-ratio">0.75</td>
           </tr>
           <tr class="pos-2">
             <td class="rank">2</td>
-            <td><span class="team-name">Zidaan Warriors</span></td>
-            <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-            <td class="set-ratio-na">—</td>
+            <td><span class="team-name">Vatsu Warriors</span></td>
+            <td>3</td><td>2</td><td>1</td><td>5</td><td>3</td>
+            <td class="set-ratio">0.63</td>
           </tr>
           <tr class="qual-line"><td colspan="8">— QUALIFICATION LINE —</td></tr>
           <tr class="pos-3">
             <td class="rank">3</td>
-            <td><span class="team-name">Spark Dominators</span></td>
-            <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-            <td class="set-ratio-na">—</td>
+            <td><span class="team-name">Zidaan Warriors</span></td>
+            <td>3</td><td>1</td><td>2</td><td>2</td><td>5</td>
+            <td class="set-ratio">0.29</td>
           </tr>
           <tr class="pos-4">
             <td class="rank">4</td>
             <td><span class="team-name">Runwal Spartans</span></td>
-            <td>1</td><td>0</td><td>1</td><td>1</td><td>2</td>
+            <td>3</td><td>0</td><td>3</td><td>3</td><td>6</td>
             <td class="set-ratio">0.33</td>
           </tr>
         </tbody>
       </table>
-      <div class="pool-b-info">✅ 1 MATCH COMPLETE · MORE MATCHES DAY 2 · SATURDAY MAY 16</div>
+      <div class="pool-b-info">✅ ALL 6 MATCHES COMPLETE</div>
     </div>
   </div>
 
@@ -676,6 +691,41 @@ footer{padding:3rem;border-top:1px solid rgba(255,255,255,.04);background:rgba(1
       <span class="pill-score">2–1</span>
       <span style="color:var(--muted);font-size:.7rem">|</span>
       <span class="pill-time">DAY 1 · 6:00 PM</span>
+    </div>
+    <div class="result-pill" id="rp8">
+      <span class="pill-result">✅ SPARK DOMINATORS def. VATSU WARRIORS</span>
+      <span style="color:var(--muted);font-size:.7rem">|</span>
+      <span class="pill-score">2–1</span>
+      <span style="color:var(--muted);font-size:.7rem">|</span>
+      <span class="pill-time">DAY 2 · 6:00 AM</span>
+    </div>
+    <div class="result-pill" id="rp9">
+      <span class="pill-result">✅ SPARK DOMINATORS def. RUNWAL SPARTANS</span>
+      <span style="color:var(--muted);font-size:.7rem">|</span>
+      <span class="pill-score">2–1</span>
+      <span style="color:var(--muted);font-size:.7rem">|</span>
+      <span class="pill-time">DAY 2 · 7:00 AM</span>
+    </div>
+    <div class="result-pill" id="rp10">
+      <span class="pill-result">✅ VATSU WARRIORS def. ZIDAAN WARRIORS</span>
+      <span style="color:var(--muted);font-size:.7rem">|</span>
+      <span class="pill-score">2–0</span>
+      <span style="color:var(--muted);font-size:.7rem">|</span>
+      <span class="pill-time">DAY 2 · 4:00 PM</span>
+    </div>
+    <div class="result-pill" id="rp11">
+      <span class="pill-result">✅ ZIDAAN WARRIORS def. RUNWAL SPARTANS</span>
+      <span style="color:var(--muted);font-size:.7rem">|</span>
+      <span class="pill-score">2–1</span>
+      <span style="color:var(--muted);font-size:.7rem">|</span>
+      <span class="pill-time">DAY 2 · 5:00 PM</span>
+    </div>
+    <div class="result-pill" id="rp12">
+      <span class="pill-result">✅ SPARK DOMINATORS def. ZIDAAN WARRIORS</span>
+      <span style="color:var(--muted);font-size:.7rem">|</span>
+      <span class="pill-score">2–0</span>
+      <span style="color:var(--muted);font-size:.7rem">|</span>
+      <span class="pill-time">DAY 2 · 6:00 PM</span>
     </div>
   </div>
 </section>
@@ -802,15 +852,15 @@ footer{padding:3rem;border-top:1px solid rgba(255,255,255,.04);background:rgba(1
     </div>
     <span class="session-label">MORNING SESSION · 6:00 AM – 10:00 AM</span>
     <!-- UPDATE MATCH STATUSES AND SCORES HERE -->
-    <div class="match-row match-row-next">
+    <div class="match-row">
       <span class="match-time">6:00 AM</span>
       <div><div class="match-teams">Vatsu Warriors</div><div class="match-vs">vs</div><div class="match-teams">Spark Dominators</div></div>
-      <div class="match-right"><span class="tag-pool-b match-pool-tag">POOL B</span><span class="status-next">🔜 NEXT</span></div>
+      <div class="match-right"><span class="tag-pool-b match-pool-tag">POOL B</span><span class="status-done">✅ DONE</span><span class="match-score">1–2</span></div>
     </div>
     <div class="match-row">
       <span class="match-time">7:00 AM</span>
       <div><div class="match-teams">Runwal Spartans</div><div class="match-vs">vs</div><div class="match-teams">Spark Dominators</div></div>
-      <div class="match-right"><span class="tag-pool-b match-pool-tag">POOL B</span><span class="status-upcoming">UPCOMING</span></div>
+      <div class="match-right"><span class="tag-pool-b match-pool-tag">POOL B</span><span class="status-done">✅ DONE</span><span class="match-score">1–2</span></div>
     </div>
     <div class="buffer-row">⏸ BUFFER TIME · 8:00 AM – 10:00 AM</div>
     <span class="session-label" style="margin-top:1.5rem">EVENING SESSION · 4:00 PM – 7:00 PM · ZIDAAN WARRIORS MARATHON — 3 CONSECUTIVE MATCHES</span>
@@ -818,17 +868,17 @@ footer{padding:3rem;border-top:1px solid rgba(255,255,255,.04);background:rgba(1
     <div class="match-row">
       <span class="match-time">4:00 PM</span>
       <div><div class="match-teams"><span class="zidaan-glow">Zidaan Warriors</span></div><div class="match-vs">vs</div><div class="match-teams">Vatsu Warriors</div></div>
-      <div class="match-right"><span class="tag-pool-b match-pool-tag">POOL B</span><span class="status-upcoming">UPCOMING</span></div>
+      <div class="match-right"><span class="tag-pool-b match-pool-tag">POOL B</span><span class="status-done">✅ DONE</span><span class="match-score">0–2</span></div>
     </div>
     <div class="match-row">
       <span class="match-time">5:00 PM</span>
       <div><div class="match-teams"><span class="zidaan-glow">Zidaan Warriors</span></div><div class="match-vs">vs</div><div class="match-teams">Runwal Spartans</div></div>
-      <div class="match-right"><span class="tag-pool-b match-pool-tag">POOL B</span><span class="status-upcoming">UPCOMING</span></div>
+      <div class="match-right"><span class="tag-pool-b match-pool-tag">POOL B</span><span class="status-done">✅ DONE</span><span class="match-score">2–1</span></div>
     </div>
     <div class="match-row">
       <span class="match-time">6:00 PM</span>
       <div><div class="match-teams"><span class="zidaan-glow">Zidaan Warriors</span></div><div class="match-vs">vs</div><div class="match-teams">Spark Dominators</div></div>
-      <div class="match-right"><span class="tag-pool-b match-pool-tag">POOL B</span><span class="status-upcoming">UPCOMING</span></div>
+      <div class="match-right"><span class="tag-pool-b match-pool-tag">POOL B</span><span class="status-done">✅ DONE</span><span class="match-score">0–2</span></div>
     </div>
   </div>
 
@@ -846,20 +896,20 @@ footer{padding:3rem;border-top:1px solid rgba(255,255,255,.04);background:rgba(1
     <div class="match-row">
       <span class="match-time">6:30 AM</span>
       <div>
-        <div class="match-teams">Semifinal 1</div>
-        <div class="match-vs">POOL A 1st vs POOL B 2nd</div>
-        <div class="match-teams" style="color:var(--muted);font-size:.8rem;font-weight:400">TBD — determined after league stage</div>
+        <div class="match-teams">Lodha Titans <span style="font-size:0.7em;color:var(--muted)">(Pool A 1st)</span></div>
+        <div class="match-vs">vs</div>
+        <div class="match-teams">Vatsu Warriors <span style="font-size:0.7em;color:var(--muted)">(Pool B 2nd)</span></div>
       </div>
-      <div class="match-right"><span class="tag-knockout match-pool-tag">KNOCKOUT</span><span class="status-tbd">TBD</span></div>
+      <div class="match-right"><span class="tag-knockout match-pool-tag">KNOCKOUT</span><span class="status-done">✅ DONE</span></div>
     </div>
     <div class="match-row">
       <span class="match-time">8:15 AM</span>
       <div>
-        <div class="match-teams">Semifinal 2</div>
-        <div class="match-vs">POOL B 1st vs POOL A 2nd</div>
-        <div class="match-teams" style="color:var(--muted);font-size:.8rem;font-weight:400">TBD — determined after league stage</div>
+        <div class="match-teams">Spark Dominators <span style="font-size:0.7em;color:var(--muted)">(Pool B 1st)</span></div>
+        <div class="match-vs">vs</div>
+        <div class="match-teams">Royal Boys <span style="font-size:0.7em;color:var(--muted)">(Pool A 2nd)</span></div>
       </div>
-      <div class="match-right"><span class="tag-knockout match-pool-tag">KNOCKOUT</span><span class="status-tbd">TBD</span></div>
+      <div class="match-right"><span class="tag-knockout match-pool-tag">KNOCKOUT</span><span class="status-done">✅ DONE</span></div>
     </div>
     <span class="session-label session-label-ko" style="margin-top:1.5rem">EVENING SESSION · GRAND FINAL · 5:00 PM</span>
     <!-- UPDATE MATCH STATUSES AND SCORES HERE -->
@@ -867,22 +917,22 @@ footer{padding:3rem;border-top:1px solid rgba(255,255,255,.04);background:rgba(1
       <span class="grand-final-time">5:00 PM</span>
       <div>
         <span class="grand-final-title">🏆 GRAND FINAL</span>
-        <p class="grand-final-sub">Champions will be decided here</p>
+        <p class="grand-final-sub">The champions have been crowned</p>
       </div>
-      <div class="match-right"><span class="tag-final match-pool-tag">FINAL</span></div>
+      <div class="match-right"><span class="tag-final match-pool-tag">FINAL</span><span class="status-done">✅ DONE</span></div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="sec cta-sec" id="s-cta">
-  <div class="s-eye" id="se4" style="justify-content:center">TOURNAMENT IN PROGRESS</div>
-  <h2 class="s-h" id="sh4" style="font-size:clamp(4.5rem,12vw,12rem)">REGISTRATION<br>CLOSED</h2>
-  <p class="cta-copy" id="ccp">The squads are locked. The battle has begun.</p>
+  <div class="s-eye" id="se4" style="justify-content:center">TOURNAMENT COMPLETED</div>
+  <h2 class="s-h" id="sh4" style="font-size:clamp(4.5rem,12vw,12rem)">TOURNAMENT<br>COMPLETED</h2>
+  <p class="cta-copy" id="ccp">The battles have concluded. Congratulations to our champions.</p>
   <div class="btn-wrap" id="bw" style="pointer-events:none">
-    <button class="cta-btn" id="regBtn" disabled style="background:rgba(255,255,255,.06);color:var(--muted);cursor:default;box-shadow:none;animation:none;border:1px solid rgba(255,255,255,.1)">🔒 REGISTRATION CLOSED</button>
+    <button class="cta-btn" id="regBtn" disabled style="background:rgba(255,255,255,.06);color:var(--muted);cursor:default;box-shadow:none;animation:none;border:1px solid rgba(255,255,255,.1)">🏆 TOURNAMENT COMPLETED</button>
   </div>
-  <p class="cta-note" id="cn">FOLLOW THE LIVE STANDINGS ABOVE · CHECK THE FULL MATCH SCHEDULE · GRAND FINAL — SUNDAY MAY 17 · 5:00 PM</p>
+  <p class="cta-note" id="cn">CHECK THE FINAL STANDINGS ABOVE · THANK YOU TO ALL PARTICIPANTS FOR AN INCREDIBLE SPARK 2026</p>
 </section>
 
 <footer>
@@ -897,15 +947,15 @@ footer{padding:3rem;border-top:1px solid rgba(255,255,255,.04);background:rgba(1
   <div class="p-back" onclick="closePortal()"></div>
   <div class="p-box" id="pbox">
     <div class="p-head">
-      <div><div class="p-eye">STEP ONTO THE COURT</div><div class="p-title">JOIN THE SPARK</div></div>
+      <div><div class="p-eye">TOURNAMENT COMPLETED</div><div class="p-title">REGISTRATION CLOSED</div></div>
       <button class="p-x" onclick="closePortal()">✕</button>
     </div>
     <div class="p-body">
-      <div class="i-shell">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdVDs5VDeK0TY5b1-r2qcu4b-ea3vk6l2uKlxlCcVCLv88nvQ/viewform?embedded=true" title="SPARK Tournament Registration" loading="lazy">Loading…</iframe>
+      <div class="i-shell" style="display:flex;align-items:center;justify-content:center;background:var(--void);color:var(--gold);font-family:var(--font-d);font-size:3rem;text-align:center;">
+        THE TOURNAMENT IS NOW COMPLETE. <br>THANK YOU FOR YOUR PARTICIPATION.
       </div>
     </div>
-    <div class="p-foot"><button class="m-btn" onclick="showSuccess()">✅ I HAVE SUBMITTED MY REGISTRATION</button></div>
+    <div class="p-foot"><button class="m-btn" onclick="closePortal()">RETURN TO SITE</button></div>
   </div>
 </div>
 
@@ -1219,6 +1269,7 @@ function startHero(){
   s('hk',300,{opacity:1,transform:'none'});s('ht',500,{opacity:1,transform:'none'});s('hd',900,{opacity:1});s('hs',1100,{opacity:1,transform:'none'});s('sh',1600,{opacity:1});
 }
 const revs=[
+  {id:'se-g',d:0},{id:'sh-g',d:100},{id:'gg',d:200},
   {id:'se1',d:0},{id:'sh1',d:100},{id:'pc1',d:200},{id:'pc2',d:350},{id:'pc3',d:500},
   {id:'se2',d:0},{id:'sh2',d:100},{id:'ts',d:200},{id:'tl',d:400},{id:'tsub',d:500},{id:'tbg',d:600},
   {id:'se3',d:0},{id:'sh3',d:100},{id:'fi1',d:200},{id:'fi2',d:300},{id:'fi3',d:400},{id:'fi4',d:500},
